@@ -83,3 +83,21 @@ p {
     transform: translateY(0);
   }
 }
+.subtitle {
+  font-size: 1rem;
+  color: #555;
+  margin-top: -10px;
+  margin-bottom: 25px;
+}
+
+.doctor-search {
+  margin-bottom: 30px;
+}
+
+.doctors-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
