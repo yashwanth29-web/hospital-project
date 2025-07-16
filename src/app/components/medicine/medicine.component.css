@@ -1,0 +1,217 @@
+/* Navbar styling */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #0077b6;
+  color: white;
+  padding: 12px 24px;
+  font-family: 'Segoe UI', sans-serif;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.navbar-left {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.search-input {
+  padding: 8px 12px;
+  border-radius: 4px;
+  border: none;
+  width: 250px;
+}
+
+.navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.buy-btn {
+  background-color: #90e0ef;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.buy-btn:hover {
+  background-color: #48cae4;
+}
+
+.buy-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.cart-icon {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+/* Card layout */
+.cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  padding: 30px 20px;
+  background-color: #f1f3f4;
+}
+
+/* Individual card styling */
+.card {
+  width: 220px;
+  height: 370px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  padding: 12px;
+  text-align: center;
+  transition: transform 0.3s;
+}
+
+.card:hover {
+  transform: scale(1.04);
+}
+
+.card img {
+  width: 100%;
+  height: 130px;
+  object-fit: cover;
+  border-radius: 6px;
+  margin-bottom: 10px;
+}
+
+.card h3 {
+  font-size: 18px;
+  margin: 6px 0;
+}
+
+.card p {
+  font-size: 14px;
+  margin: 4px 0;
+}
+
+.price {
+  color: #0077b6;
+  font-weight: bold;
+}
+
+.rating {
+  color: #f9a825;
+}
+
+/* Button styles */
+.button-group {
+  margin-top: 10px;
+}
+
+.add-btn {
+  background-color: #00b894;
+  color: white;
+  padding: 6px 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.add-btn:hover {
+  background-color: #019875;
+}
+
+.cancel-btn {
+  background-color: #e63946;
+  color: white;
+  padding: 6px 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.cancel-btn:hover {
+  background-color: #c1121f;
+}
+
+/* Popup styling */
+.popup {
+  position: fixed;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: linear-gradient(to bottom right, #f0fff0, #e6f9ff);
+  border: 2px solid #00b894;
+  border-radius: 16px;
+  padding: 30px 25px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  z-index: 999;
+  max-width: 350px;
+  width: 90%;
+  animation: slideUp 0.5s ease-in-out;
+}
+
+.popup-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.popup-content p {
+  font-size: 18px;
+  font-weight: 500;
+  margin: 20px 0 15px;
+}
+
+.popup-content .highlight {
+  font-weight: bold;
+  color: #0c7;
+}
+
+.popup-content button {
+  background: #0c7;
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  font-size: 15px;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  transition: background 0.3s ease;
+}
+
+.popup-content button:hover {
+  background: #09995f;
+}
+
+.bike {
+  width: 80px;
+  margin-bottom: 15px;
+  animation: moveBike 1.5s linear infinite;
+}
+
+/* Animations */
+@keyframes moveBike {
+  0% { transform: translateX(0); }
+  50% { transform: translateX(15px); }
+  100% { transform: translateX(0); }
+}
+
+@keyframes slideUp {
+  from { transform: translate(-50%, 100%); opacity: 0; }
+  to { transform: translate(-50%, -50%); opacity: 1; }
+}

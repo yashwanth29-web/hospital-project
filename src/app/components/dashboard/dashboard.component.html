@@ -1,5 +1,5 @@
 <section class="doctors fade-in">
-  <h2>Meet Our Expert Doctors</h2>
+  <h2 class="section-title">Meet Our Expert Doctors</h2>
   <p class="subtitle">Highly qualified and experienced professionals dedicated to your care</p>
 
   <div class="doctor-search">
@@ -8,16 +8,19 @@
       placeholder="Search by name or specialty..."
       aria-label="Search doctors"
       class="input-field"
+      [(ngModel)]="searchTerm"
     />
   </div>
 
   <div class="doctors-grid">
-    <div class="doctor-card" *ngFor="let doctor of doctors">
+    <div class="doctor-card" *ngFor="let doctor of filteredDoctors">
       <img [src]="doctor.image" [alt]="doctor.name" />
       <h3>{{ doctor.name }}</h3>
       <p>{{ doctor.specialty }}</p>
       <p>{{ doctor.timing }}</p>
-      <button class="card-button" (click)="bookAppointment(doctor.name)">Book Appointment</button>
+      <button class="card-button btn btn-primary" (click)="bookAppointment(doctor.name)">
+        Book Appointment
+      </button>
     </div>
   </div>
 </section>

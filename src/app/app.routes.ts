@@ -5,6 +5,7 @@ import { authGuard } from './auth.guard';
 import { HomeComponent } from './components/home/home.component';
 import { AppointmentComponent } from './components/appointment/appointment.component';
 import { AboutComponent } from './components/about/about.component';
+import { MedicineComponent } from './components/medicine/medicine.component';
 
 export const routes: Routes = [
     {path: '', redirectTo: '/login', pathMatch: 'full'  },
@@ -12,6 +13,7 @@ export const routes: Routes = [
     {path:'home', component: HomeComponent},
     {path: 'appointment', component: AppointmentComponent},
     {path: 'about', component: AboutComponent},
+    {path: 'medicine', component: MedicineComponent},
     {path:'dashboard', component: DashboardComponent,canActivate: [authGuard] }, // Protect the dashboard route with authGuard
     {path: '**', redirectTo: '/home'  } // Wildcard route for a 404 page   
 ]; 

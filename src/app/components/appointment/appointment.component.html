@@ -1,18 +1,49 @@
-<section class="appointment fade-in">
-  <h2>Book an Appointment</h2>
-  <p>Our easy online booking helps you schedule visits with specialists at your convenience.</p>
-  <form>
-    <input type="text" placeholder="Full Name" required>
-    <input type="email" placeholder="Email Address" required>
-    <input type="date" required>
-    <select required>
-      <option value="">Select Department</option>
-      <option>Cardiology</option>
-      <option>Neurology</option>
-      <option>Orthopedics</option>
-      <option>Pediatrics</option>
-      <option>General Medicine</option>
-    </select>
-    <button type="submit">Book Now</button>
-  </form>
-</section>
+<div class="appointment-container">
+  <h2>Appointment List</h2>
+  <button class="add-btn" (click)="showPopup()">Add Appointment</button>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Date</th>
+        <th>Department</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let appointment of appointments">
+        <td>{{ appointment.fullName }}</td>
+        <td>{{ appointment.email }}</td>
+        <td>{{ appointment.date }}</td>
+        <td>{{ appointment.department }}</td>
+        <td>
+          <button class="edit-btn" (click)="onEdit(appointment)">Edit</button>
+          <button class="delete-btn" (click)="onDelete(appointment.id)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Modal Popup Form -->
+  <div class="modal" [class.show]="popupVisible">
+    <div class="modal-content">
+      <span class="close" (click)="hidePopup()">&times;</span>
+      <form (ngSubmit)="onSubmit()">
+        <input type="text" placeholder="Full Name" [(ngModel)]="appointmentData.fullName" name="fullName" required>
+        <input type="email" placeholder="Email" [(ngModel)]="appointmentData.email" name="email" required>
+        <input type="date" [(ngModel)]="appointmentData.date" name="date" required>
+        <select [(ngModel)]="appointmentData.department" name="department" required>
+          <option value="">Select Department</option>
+          <option>Cardiology</option>
+          <option>Neurology</option>
+          <option>Orthopedics</option>
+          <option>Pediatrics</option>
+          <option>General Medicine</option>
+        </select>
+        <button type="submit">{{ editMode ? 'Update' : 'Save' }}</button>
+      </form>
+    </div>
+  </div>
+</div>

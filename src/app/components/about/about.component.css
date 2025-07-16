@@ -1,85 +1,109 @@
-section {
-  padding: 30px;
-  margin: 30px auto;
-  background-color: #fff;
+.about-container {
+  font-family: 'Segoe UI', sans-serif;
+  padding: 20px;
+  color: #333;
+  background: #f7f9fc;
+  animation: fadeIn 1s ease-in;
+}
+
+h1, h2 {
+  color: #0077b6;
+  margin-bottom: 12px;
+}
+
+.hero-section {
+  text-align: center;
+  background: linear-gradient(to right, #90e0ef, #00b4d8);
+  padding: 40px;
   border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  max-width: 1000px;
-  opacity: 0;
-  transform: translateY(30px);
-  animation: fadeInUp 1s ease forwards;
-}
-
-h2 {
-  color: #007bff;
-  margin-bottom: 15px;
-}
-
-p {
-  margin-bottom: 10px;
-  color: #444;
-  line-height: 1.6;
-}
-
-.appointment form {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  max-width: 400px;
-}
-
-.appointment input,
-.appointment select,
-.appointment button {
-  padding: 10px;
-  border-radius: 6px;
-  border: 1px solid #ccc;
-}
-
-.appointment button {
-  background-color: #28a745;
   color: white;
-  cursor: pointer;
-  border: none;
-  transition: background 0.3s ease;
 }
 
-.appointment button:hover {
-  background-color: #218838;
+.mission-section, .specialties-section, .team-section,
+.why-choose-us-section, .infrastructure-section, .testimonial-section {
+  margin: 40px 0;
+  padding: 20px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-.doctors {
+ul {
+  padding-left: 20px;
+}
+
+.team-grid {
   display: flex;
   gap: 20px;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
-.doctor-card {
-  background: #f1f1f1;
-  padding: 15px;
-  width: 200px;
-  border-radius: 10px;
+.team-card {
+  width: 220px;
+  padding: 16px;
+  background: #e0f7fa;
+  border-radius: 12px;
   text-align: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.3s ease;
 }
 
-.doctor-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+.team-card:hover {
+  transform: scale(1.05);
 }
 
-.doctor-card img {
+.team-card img {
   width: 100px;
-  height: 100px;
-  object-fit: cover;
   border-radius: 50%;
   margin-bottom: 10px;
 }
 
-/* Animation */
-@keyframes fadeInUp {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.footer-section {
+  text-align: center;
+  margin-top: 50px;
+  padding: 20px;
+  background: #023e8a;
+  color: white;
+  border-radius: 0 0 10px 10px;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.fade-in {
+  animation: fadeIn 1s ease-in;
+}
+
+.fade-in-delay {
+  animation: fadeIn 2s ease-in;
+}
+
+@keyframes slideUp {
+  from { transform: translateY(40px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.slide-up {
+  animation: slideUp 1.2s ease;
+}
+
+@keyframes slideLeft {
+  from { transform: translateX(60px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+.slide-left {
+  animation: slideLeft 1.2s ease;
+}
+
+@keyframes zoomIn {
+  from { transform: scale(0.8); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.zoom-in {
+  animation: zoomIn 1s ease;
 }

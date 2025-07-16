@@ -1,0 +1,36 @@
+<nav class="navbar">
+  <div class="navbar-left">
+    <span class="logo">💊 MedCart</span>
+    <input type="text" [(ngModel)]="searchTerm" placeholder="Search medicine..." class="search-input">
+  </div>
+  <div class="navbar-right">
+<button class="buy-btn" (click)="onBuyNow()" [disabled]="cartCount === 0">Buy Now</button>
+    <div class="cart-icon">
+      🛒 <span class="cart-count">{{ cartCount }}</span>
+    </div>
+  </div>
+</nav>
+
+<div class="cards-container">
+  <div class="card" *ngFor="let med of filteredMedicines; let i = index" @fadeIn>
+    <img [src]="med.image" alt="{{ med.name }}">
+    <h3>{{ med.name }}</h3>
+    <p>{{ med.description }}</p>
+    <p class="price">Price: ₹{{ med.price }}</p>
+    <p class="rating">Rating: {{ med.rating }}⭐</p>
+    <div class="button-group">
+      <button (click)="addToCart(i)" [ngClass]="{ 'add-btn': !med.isInCart, 'cancel-btn': med.isInCart }">
+        {{ med.isInCart ? 'Cancel' : 'Add' }}
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- Buy Now Popup -->
+<div class="popup" *ngIf="showPopup" @fadeIn>
+  <div class="popup-content">
+    <img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExemh1eDljMHphcW1pMm03NHg1aHY0em01a2lmYnJkdmowYTBqa3FhcyZlcD12MV9naWZzX3NlYXJjaCZjdD1n/ICnE90q1JUH0poH7aB/200.webp" class="bike" alt="Moving Motorbike" />
+    <p><span class="highlight">{{ cartCount }}</span> item{{ cartCount > 1 ? 's' : '' }} will be delivered in <span class="highlight">5 mins</span>!</p>
+    <button (click)="closePopup()">Close</button>
+  </div>
+</div>
